@@ -1,0 +1,66 @@
+{
+    "logo":"Hant",
+	"leftmenu": [{
+			"name": "产品",
+			"code": "01",
+			"url": "../Menu/index_mobile",
+			"child": []
+		},
+		{
+			"name": "大数据",
+			"code": "02",
+			"url": "../Menu/index_mobile",
+			"child": []
+		},
+		{
+			"name": "解决方案",
+			"code": "03",
+			"url": "../Menu/index_mobile",
+			"child": [{
+					"name": "移动模块",
+					"code": "0301",
+					"url": "../Menu/index_mobile"
+				},
+				{
+					"name": "后台模块",
+					"code": "0302",
+					"url": "../Menu/index_mobile"
+				},
+				{
+					"name": "电商平台",
+					"code": "0303",
+					"url": "../Menu/index_mobile"
+				}
+			]
+		},
+		{
+			"name": "关于我们",
+			"code": "04",
+			"url": "../Menu/index_mobile",
+			"child": []
+		}
+	],
+	"rightmenu":[
+		{
+			"name": "我",
+			"code": "01",
+			"rul": "../Menu/index_mobile",
+			"child": [{
+					"name": "修改信息",
+					"code": "0101",
+					"url": "../Menu/index_mobile"
+				},
+				{
+					"name": "安全管理",
+					"code": "0102",
+					"url": "../Menu/index_mobile"
+				},
+				{
+					"name": "退了",
+					"code": "0103",
+					"url": "../Menu/index_mobile"
+				}
+			]
+		}
+	]
+}

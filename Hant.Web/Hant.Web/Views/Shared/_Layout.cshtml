@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Hant.Web</title>
+    @Styles.Render("~/Content/layui/src/css/layui.css")
+    @Styles.Render("~/Content/_Layout.css");
+</head>
+<body class="layui-layout-body">
+    <div id="menu" class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">Hant多多</div>
+            <ul class="layui-nav layui-layout-left" v-html="leftmenuhtml"> </ul>
+            <ul class="layui-nav layui-layout-right" v-if="isDengLu" v-html="rightmenuhtml"></ul>
+            <ul class="layui-nav layui-layout-right" v-else="isDengLu">
+                <li class=" layui-nav-item">
+                    <a id="menu_zhuce_01" name="menu" href="#">注册</a>
+                </li>
+                <li class=" layui-nav-item">
+                    <a id="menu_denglu_01" name="menu" href="#">登录</a>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-layout">
+            <div class="layui-fluid" style="margin: 20px 20px 0px 20px;" v-html="navmenuhtml">
+            </div>
+            <hr>
+        </div>
+        <div class="layui-body" style="margin-top:60px;">
+            @RenderBody()
+            <div class="layui-footer" style="left:0px;text-align:center;">
+                XXXXX提供技术支持
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+    @Scripts.Render("~/Content/layui/src/layui.js")
+    @Scripts.Render("~/Scripts/vue.js")
+    @Scripts.Render("~/Scripts/_Layout.js")
+</body>
+</html>
