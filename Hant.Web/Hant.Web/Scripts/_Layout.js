@@ -79,7 +79,7 @@
                     content = data;
                     var id = layer.open({
                         type: 1,
-                        title: '注册',
+                        title: ['注册', 'font-size:18px;font-weight:bold;color:#c2c2c2;'],
                         content: content,
                         area: ['500px', '400px'],
                         shade: [0.8, '#393D49'],
