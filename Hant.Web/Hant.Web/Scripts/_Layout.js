@@ -86,12 +86,30 @@
                         shadeClose: true,
                         anim: 1,
                     });
+                    //验证码图片
+                    $(document).on('click', '#image_code_01', function () {
+                        $.ajax({
+                            type: "GET",
+                            dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+                            jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+                            jsonpCallback: 'handleResponse', //设置回调函数名
+                            url: ApiConfig.url + "account/GetImageCode",
+                            success: function (data) {
+                                var resultJSON = data;
+                                $("#image_code_01").attr("src", "data:image/jpg;base64,"+data.base64Str);
+                                $("#hidimgcode").attr("src", data.imgcode);
+                            },
+                            error: function (data) {
+                                layer.alert(JSON.stringify(data));
+                            }
+                        })
+                    });
                     //监听提交
-                    $("menu").on('click', '#zhuce_zhuce', function () {
+                    $(document).on('click', '#zhuce_tijiao_1', function () {
                         layer.msg('11');
                         return false;
                     });
-                    $("menu").on('click', '#zhuce_quxiao', function () {
+                    $(document).on('click', '#zhuce_quxiao_1', function () {
                         layer.close(id);
                     });
                 },
@@ -117,12 +135,30 @@
                         shadeClose: true,
                         anim: 1,
                     });
+                    //验证码图片
+                    $(document).on('click', '#image_code_01', function () {
+                        $.ajax({
+                            type: "GET",
+                            dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+                            jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+                            jsonpCallback: 'handleResponse', //设置回调函数名
+                            url: ApiConfig.url + "account/",
+                            success: function (data) {
+                                var resultJSON =data;
+                                $("#image_code_01").attr("src", "data:image/jpg;base64," +data.base64Str);
+                                $("#hidimgcode").attr("src", data.imgcode);
+                            },
+                            error: function (data) {
+                                layer.alert("请联系系统管理员!");
+                            }
+                        })
+                    });
                     //监听提交
-                    $("menu").on('click', '#zhuce_tijiao', function () {
+                    $(document).on('click', '#zhuce_tijiao', function () {
                         layer.msg("11");
                         return false;
                     });
-                    $("menu").on('click', '#zhuce_quxiao', function () {
+                    $(document).on('click', '#zhuce_quxiao', function () {
                         layer.close(id);
                     });
                 },

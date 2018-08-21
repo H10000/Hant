@@ -49,8 +49,8 @@ namespace Hant.Web.API.Helper
             //if (checkCode == null || checkCode.Trim() == string.Empty)
             //    return new Image();
             //根据验证码的长度确定输出图片的宽度
-            int iWidth = (int)Math.Ceiling(checkCode.Length * 25m);
-            int iHeight = 24;
+            int iWidth = (int)Math.Ceiling(checkCode.Length * 30m);
+            int iHeight = 30;
             //创建图像
             Bitmap image = new Bitmap(iWidth, iHeight);
             //从图像获取一个绘图面
@@ -81,14 +81,14 @@ namespace Hant.Web.API.Helper
                 //画图片的框线
                 g.DrawRectangle(new Pen(Color.SaddleBrown), 0, 0, image.Width - 1, image.Height - 1);
                 //定义绘制文字的字体
-                Font f = new Font("Arial", 12, (FontStyle.Bold | FontStyle.Italic));
+                Font f = new Font("Arial", 14, (FontStyle.Bold | FontStyle.Italic));
                 //线性渐变画刷
                 System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(new Rectangle(0, 0, image.Width, image.Height), Color.Blue, Color.Purple, 1.2f, true);
                 int location_x = 2;
                 foreach (char c in checkCode)
                 {
                     g.DrawString(c.ToString(), f, brush, location_x, 2);
-                    location_x += 10;
+                    location_x += 30;
                 }
                 ////创建内存流用于输出图片
                 //using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
