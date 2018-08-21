@@ -294,6 +294,7 @@
     <Content Include="Content\_Layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Config.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\_Layout.js" />
