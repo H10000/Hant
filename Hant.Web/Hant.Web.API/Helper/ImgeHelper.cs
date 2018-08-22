@@ -17,11 +17,11 @@ namespace Hant.Web.API.Helper
         /// <returns></returns>
         public static string getOneCode(int a, int b)
         {
-            Random ran = new Random();
+            Random ran = new Random(Guid.NewGuid().GetHashCode());
             char c = (char)ran.Next(a, b);
             return c.ToString();
         }
- 
+
         /// <summary>
         /// 得到验证码
         /// </summary>
@@ -58,16 +58,16 @@ namespace Hant.Web.API.Helper
 
             try
             {
-                Random r = new Random();
+                Random r = new Random(Guid.NewGuid().GetHashCode());
                 //清空图片背景色
                 g.Clear(Color.White);
                 //画图片的背景噪音线10条
                 for (int i = 0; i < 10; i++)
                 {
-                    int x1 = r.Next(image.Width);
-                    int x2 = r.Next(image.Width);
-                    int y1 = r.Next(image.Height);
-                    int y2 = r.Next(image.Height);
+                    int x1 = new Random(Guid.NewGuid().GetHashCode()).Next(image.Width);
+                    int x2 = new Random(Guid.NewGuid().GetHashCode()).Next(image.Width);
+                    int y1 = new Random(Guid.NewGuid().GetHashCode()).Next(image.Height);
+                    int y2 = new Random(Guid.NewGuid().GetHashCode()).Next(image.Height);
                     //用银色画出噪音线
                     g.DrawLine(new Pen(Color.Silver), x1, y1, x2, y2);
                 }

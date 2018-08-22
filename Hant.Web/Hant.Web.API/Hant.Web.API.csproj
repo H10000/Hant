@@ -126,7 +126,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\ImgeHelper.cs" />
-    <Compile Include="Models\JsonpResult.cs" />
+    <Compile Include="Models\JsonpResultAPI.cs" />
+    <Compile Include="Models\JsonpResultMVC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

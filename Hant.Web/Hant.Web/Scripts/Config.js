@@ -1,4 +1,4 @@
 ﻿var ApiConfig = {
-    url: 'http://localhost:8098/',
+    url: 'http://localhost:8098/api/',
     token:'Hant',
 }
