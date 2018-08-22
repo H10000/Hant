@@ -9,9 +9,9 @@ namespace Hant.Web.API
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            // Web API 配置和服务
 
-            // Web API routes
+            // Web API 路由
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

@@ -139,7 +139,7 @@
             dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
             jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
             jsonpCallback: 'handleResponse', //设置回调函数名
-            url: ApiConfig.url + "account/",
+            url: ApiConfig.url + "account/GetImageCode",
             success: function (data) {
                 var resultJSON = data;
                 $("#image_code_01").attr("src", "data:image/jpg;base64," + data.base64Str);
@@ -152,17 +152,18 @@
     }
     //监听注册、登录按钮
     $(document).on('click', '#zhuce_tijiao_1', function () {
-        layer.msg('11');
+        var $obj = $("#zhuce_name_01");
+        if ($obj.val() == "") {
+            layer.tips('用户名不能为空', $obj, {
+                tips: [1, '#FF5722']
+            });
+        }
+        else {
+            validateNameIsExist($obj);
+        }
         return false;
     });
     $(document).on('click', '#zhuce_quxiao_1', function () {
-        layer.close(layer_denglu_zhuce_id);
-    });
-    $(document).on('click', '#denglu_tijiao_1', function () {
-        layer.msg("11");
-        return false;
-    });
-    $(document).on('click', '#denglu_quxiao_1', function () {
         layer.close(layer_denglu_zhuce_id);
     });
     $(document).on('click', '#zhuce_tijiao_2', function () {
@@ -170,6 +171,14 @@
         return false;
     });
     $(document).on('click', '#zhuce_quxiao_2', function () {
+        layer.close(layer_denglu_zhuce_id);
+    });
+    //
+    $(document).on('click', '#denglu_tijiao_1', function () {
+        layer.msg("11");
+        return false;
+    });
+    $(document).on('click', '#denglu_quxiao_1', function () {
         layer.close(layer_denglu_zhuce_id);
     });
     $(document).on('click', '#denglu_tijiao_2', function () {
@@ -180,28 +189,79 @@
         layer.close(layer_denglu_zhuce_id);
     });
     //发送短信
-    $(document).on('click', '#zhuce_sendmessage_01', function () {
-
+    $(document).on('click', '#zhuce_sendmessage_01,#denglu_sendmessage_01', function () {
         var $obj = $(this);
-        $($obj).css("display", "none");
-        $($obj).next().css("display", "inline-block");
-        //发送验证码后倒计时
-        if (Interval_timeDowm_SendMessage != undefined) {
-            clearInterval(Interval_timeDowm_SendMessage);
+        var PhoneNum;
+        if ($obj.prop("id") == "zhuce_sendmessage_01") {
+            PhoneNum = $("#zhuce_phone_01").val();
         }
-        var timedowm = 60;
-        $("#zhuce_sendlable_01").text("倒计时" + timedowm + "秒");
-        Interval_timeDowm_SendMessage = setInterval(function () {
-            timedowm--;
-            if (timedowm == 0) {
-                $($obj).next().css("display", "none");
-                $($obj).css("display", "inline-block");
-                clearInterval(Interval_timeDowm_SendMessage);
+        else {
+            PhoneNum = $("#denglu_sendmessage_01").val();
+        }
+        $.ajax({
+            type: "GET",
+            data: { PhoneNum: PhoneNum },
+            dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+            jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+            //jsonpCallback: 'handleResponse', //设置回调函数名
+            url: ApiConfig.url + "account/SendShortMessage",
+            success: function (data) {
+                var resultJSON = data;
+                if (resultJSON.Result == "OK") {
+                    $($obj).css("display", "none");
+                    $($obj).next().css("display", "inline-block");
+                    //发送验证码后倒计时
+                    if (Interval_timeDowm_SendMessage != undefined) {
+                        clearInterval(Interval_timeDowm_SendMessage);
+                    }
+                    var timedowm = 60;
+                    $($obj).next().text("倒计时" + timedowm + "秒");
+                    Interval_timeDowm_SendMessage = setInterval(function () {
+                        timedowm--;
+                        if (timedowm == 0) {
+                            $($obj).next().css("display", "none");
+                            $($obj).css("display", "inline-block");
+                            clearInterval(Interval_timeDowm_SendMessage);
+                        }
+                        else
+                            $($obj).next().text("倒计时" + timedowm + "秒");
+                    }, 1000);
+                }
+            },
+            error: function (data) {
+                layer.alert("请联系系统管理员!");
             }
-            else
-                $($obj).next().text("倒计时" + timedowm + "秒");
-        }, 1000);
+        })
     });
+    //用户名输入失去焦点验证
+    $(document).on('blur', '#zhuce_name_01', function () {
+        var $obj = $(this);
+        if ($obj.val() != "") {
+            validateNameIsExist($obj);
+        }
+    });
+    //用户名输入失去焦点验证方法
+    var validateNameIsExist=function(obj) {
+        $.ajax({
+            type: "GET",
+            data: { Name: obj.val() },
+            dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+            jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+            jsonpCallback: 'handleResponse', //设置回调函数名
+            url: ApiConfig.url + "account/ValidateNameIsExist",
+            success: function (data) {
+                var resultJSON = data;
+                if (resultJSON.Result == "NO") {
+                    layer.tips('用户名已存在', obj, {
+                        tips: [1, '#FF5722']
+                    });
+                }
+            },
+            error: function (data) {
+                layer.alert("请联系系统管理员!");
+            }
+        })
+    };
     //加载导航栏菜单
     var navmenuinit = function (id) {
         var m1;
@@ -265,38 +325,5 @@
             html += "</span>";
         }
         return html;
-    }
-    //获取url参数
-    function GetRequest() {
-        var url = location.search; //获取url中"?"符后的字串 
-        var theRequest = new Object();
-        if (url.indexOf("?") != -1) {
-            var str = url.substr(1);
-            strs = str.split("&");
-            for (var i = 0; i < strs.length; i++) {
-                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-            }
-        }
-        return theRequest;
-    }
-    //生成guid
-    function uuid(len, radix) {
-        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-        var uuid = [], i;
-        radix = radix || chars.length;
-        if (len) {
-            for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random() * radix];
-        } else {
-            var r;
-            uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
-            uuid[14] = '4';
-            for (i = 0; i < 36; i++) {
-                if (!uuid[i]) {
-                    r = 0 | Math.random() * 16;
-                    uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
-                }
-            }
-        }
-        return uuid.join('');
     }
 });

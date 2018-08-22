@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -296,6 +298,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Config.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\Tool.js" />
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\_Layout.js" />
     <Content Include="Config\Menu\denglu.html" />
