@@ -143,7 +143,7 @@
             success: function (data) {
                 var resultJSON = data;
                 $("#image_code_01").attr("src", "data:image/jpg;base64," + data.base64Str);
-                $("#hidimgcode").attr("src", data.imgcode);
+                $("#hidimgcode").val(data.imgcode);
             },
             error: function (data) {
                 layer.alert("请联系系统管理员!");
@@ -153,14 +153,15 @@
     //监听注册、登录按钮
     $(document).on('click', '#zhuce_tijiao_1', function () {
         var $obj = $("#zhuce_name_01");
-        if ($obj.val() == "") {
-            layer.tips('用户名不能为空', $obj, {
-                tips: [1, '#FF5722']
-            });
-        }
-        else {
-            validateNameIsExist($obj);
-        }
+        var $obj2 = $("#zhuce_pwd_01");
+        var $obj3 = $("#zhuce_pwd_02");
+        var $obj4 = $("#zhuce_code_01");
+        if (validateName($obj))
+            if (validatePwd1($obj2))
+                if (validatePwd2($obj3, $obj2))
+                    if (validateImgCode($obj4)) {
+                       // layer.msg("成功！");
+                    }
         return false;
     });
     $(document).on('click', '#zhuce_quxiao_1', function () {
@@ -234,14 +235,29 @@
         })
     });
     //用户名输入失去焦点验证
-    $(document).on('blur', '#zhuce_name_01', function () {
+    $(document).on('blur', '#zhuce_name_01,#zhuce_pwd_01,#zhuce_pwd_02,#zhuce_code_01', function () {
         var $obj = $(this);
-        if ($obj.val() != "") {
-            validateNameIsExist($obj);
+        if ($obj.prop("id") == "zhuce_name_01") {
+            validateName($obj);
+        } else if ($obj.prop("id")== "zhuce_pwd_01") {
+            validatePwd1($obj);
+        } else if ($obj.prop("id") == "zhuce_pwd_02") {
+            validatePwd2($obj, $("#zhuce_pwd_01"));
+        } else if ($obj.prop("id") == "zhuce_code_01") {
+            validateImgCode($obj);
         }
+
     });
     //用户名输入失去焦点验证方法
-    var validateNameIsExist=function(obj) {
+    var validateName = function (obj) {
+        var tip;
+        var reg = /^[\u4e00-\u9fa5|a-zA-Z]{1}[\u4e00-\u9fa5|a-zA-Z0-9_]{4,23}$/;
+        var name = obj.val();
+        if (name == "") {
+            tip = "不能为空";
+        } else if (!reg.test(name)) {
+            tip = "用户名只能包括中文、英文、数字、下划线，且必须以中文或英文开始,长度大于4！";
+        }
         $.ajax({
             type: "GET",
             data: { Name: obj.val() },
@@ -252,16 +268,87 @@
             success: function (data) {
                 var resultJSON = data;
                 if (resultJSON.Result == "NO") {
-                    layer.tips('用户名已存在', obj, {
-                        tips: [1, '#FF5722']
-                    });
+                    tip = "用户名已存在！";
                 }
             },
             error: function (data) {
                 layer.alert("请联系系统管理员!");
             }
         })
+        if (tip != undefined) {
+            layer.tips(tip, obj, {
+                tips: [1, '#FF5722'],
+                time: 15000,
+                closeBtn: 1
+            });
+            return false;
+        } else {
+            return true;
+        }
     };
+    //密码验证
+    var validatePwd1 = function (obj) {
+        var tip;
+        var reg = /^[\u4e00-\u9fa5|a-zA-Z]{1}[\u4e00-\u9fa5|a-zA-Z0-9_]{4,23}$/;
+        var name = obj.val();
+        if (name == "") {
+            tip = "不能为空";
+        } else if (name.length < 6) {
+            tip = "密码长度必须大于等于6位！";
+        }
+        if (tip != undefined) {
+            layer.tips(tip, obj, {
+                tips: [1, '#FF5722'],
+                time: 15000,
+                closeBtn: 1
+            });
+            return false;
+        } else {
+            return true;
+        }
+    }
+    var validatePwd2 = function (obj, obj2) {
+        var tip;
+        var reg = /^[\u4e00-\u9fa5|a-zA-Z]{1}[\u4e00-\u9fa5|a-zA-Z0-9_]{4,23}$/;
+        var name = obj.val();
+        if (name == "") {
+            tip = "不能为空";
+        } else if (name != obj2.val()) {
+            tip = "两次输入密码不一致！";
+        }
+        if (tip != undefined) {
+            layer.tips(tip, obj, {
+                tips: [1, '#FF5722'],
+                time: 15000,
+                closeBtn: 1
+            });
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //验证码验证
+    var validateImgCode = function (obj) {
+        var tip;
+        var reg = /^[\u4e00-\u9fa5|a-zA-Z]{1}[\u4e00-\u9fa5|a-zA-Z0-9_]{4,23}$/;
+        var name = obj.val();
+        if (name == "") {
+            tip = "不能为空";
+        } else if (name != $("#hidimgcode").val()) {
+            tip = "验证码不正确！";
+            getImageCode();
+        }
+        if (tip != undefined) {
+            layer.tips(tip, obj, {
+                tips: [1, '#FF5722'],
+                time: 15000,
+                closeBtn: 1
+            });
+            return false;
+        } else {
+            return true;
+        }
+    }
     //加载导航栏菜单
     var navmenuinit = function (id) {
         var m1;
