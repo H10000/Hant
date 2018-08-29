@@ -6,6 +6,7 @@
     var layer_denglu_zhuce_id;
     var vm_send_message_component = "";
     var Interval_timeDowm_SendMessage;
+    var Flag_zhuce_validate_true = false;//注册登录验证通过标记
     $(document).ready(function () {
         $.ajax({
             type: "GET",
@@ -137,8 +138,9 @@
         $.ajax({
             type: "GET",
             dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+            async: false,
             jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
-            jsonpCallback: 'handleResponse', //设置回调函数名
+            //jsonpCallback: 'handleResponse', //设置回调函数名
             url: ApiConfig.url + "account/GetImageCode",
             success: function (data) {
                 var resultJSON = data;
@@ -160,7 +162,7 @@
             if (validatePwd1($obj2))
                 if (validatePwd2($obj3, $obj2))
                     if (validateImgCode($obj4)) {
-                       // layer.msg("成功！");
+                        layer.msg("成功！");
                     }
         return false;
     });
@@ -235,17 +237,18 @@
         })
     });
     //用户名输入失去焦点验证
-    $(document).on('blur', '#zhuce_name_01,#zhuce_pwd_01,#zhuce_pwd_02,#zhuce_code_01', function () {
+    $(document).on('blur', '#zhuce_name_01,#zhuce_pwd_01,#zhuce_pwd_02', function () {//,#zhuce_code_01失去焦点验证码验证暂时取消
         var $obj = $(this);
         if ($obj.prop("id") == "zhuce_name_01") {
             validateName($obj);
-        } else if ($obj.prop("id")== "zhuce_pwd_01") {
+        } else if ($obj.prop("id") == "zhuce_pwd_01") {
             validatePwd1($obj);
         } else if ($obj.prop("id") == "zhuce_pwd_02") {
             validatePwd2($obj, $("#zhuce_pwd_01"));
-        } else if ($obj.prop("id") == "zhuce_code_01") {
-            validateImgCode($obj);
         }
+        //else if ($obj.prop("id") == "zhuce_code_01") {
+        //    validateImgCode($obj);
+        //}
 
     });
     //用户名输入失去焦点验证方法
@@ -278,7 +281,7 @@
         if (tip != undefined) {
             layer.tips(tip, obj, {
                 tips: [1, '#FF5722'],
-                time: 15000,
+                time: 10000,
                 closeBtn: 1
             });
             return false;
@@ -289,7 +292,6 @@
     //密码验证
     var validatePwd1 = function (obj) {
         var tip;
-        var reg = /^[\u4e00-\u9fa5|a-zA-Z]{1}[\u4e00-\u9fa5|a-zA-Z0-9_]{4,23}$/;
         var name = obj.val();
         if (name == "") {
             tip = "不能为空";
@@ -299,7 +301,7 @@
         if (tip != undefined) {
             layer.tips(tip, obj, {
                 tips: [1, '#FF5722'],
-                time: 15000,
+                time: 5000,
                 closeBtn: 1
             });
             return false;
@@ -309,7 +311,6 @@
     }
     var validatePwd2 = function (obj, obj2) {
         var tip;
-        var reg = /^[\u4e00-\u9fa5|a-zA-Z]{1}[\u4e00-\u9fa5|a-zA-Z0-9_]{4,23}$/;
         var name = obj.val();
         if (name == "") {
             tip = "不能为空";
@@ -319,7 +320,7 @@
         if (tip != undefined) {
             layer.tips(tip, obj, {
                 tips: [1, '#FF5722'],
-                time: 15000,
+                time: 5000,
                 closeBtn: 1
             });
             return false;
@@ -330,7 +331,6 @@
     //验证码验证
     var validateImgCode = function (obj) {
         var tip;
-        var reg = /^[\u4e00-\u9fa5|a-zA-Z]{1}[\u4e00-\u9fa5|a-zA-Z0-9_]{4,23}$/;
         var name = obj.val();
         if (name == "") {
             tip = "不能为空";
@@ -341,7 +341,7 @@
         if (tip != undefined) {
             layer.tips(tip, obj, {
                 tips: [1, '#FF5722'],
-                time: 15000,
+                time: 5000,
                 closeBtn: 1
             });
             return false;

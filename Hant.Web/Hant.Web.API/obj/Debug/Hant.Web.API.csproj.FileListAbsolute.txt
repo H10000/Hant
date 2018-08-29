@@ -83,3 +83,8 @@ D:\Hant\Hant\Hant.Web\Hant.Web.API\obj\Debug\Hant.Web.API.csproj.CopyComplete
 D:\Hant\Hant\Hant.Web\Hant.Web.API\obj\Debug\Hant.Web.API.dll
 D:\Hant\Hant\Hant.Web\Hant.Web.API\obj\Debug\Hant.Web.API.pdb
 D:\个人\Hant\Hant\Hant.Web\Hant.Web.API\obj\Debug\Hant.Web.API.csprojResolveAssemblyReference.cache
+D:\Hant\Hant\Hant.Web\Hant.Web.API\obj\Debug\Hant.Web.API.csprojResolveAssemblyReference.cache
+D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.dll
+D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.SqlServer.dll
+D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.xml
+D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.SqlServer.xml
