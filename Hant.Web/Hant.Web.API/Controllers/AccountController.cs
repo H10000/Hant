@@ -19,7 +19,7 @@ namespace Hant.Web.API.Controllers
         {
             string imgcode = Helper.ImgeHelper.getCode();
             string base64Str = Helper.ImgeHelper.ImgToBase64String(Helper.ImgeHelper.CreateCheckCodeImage(imgcode));
-            var res = new { imgcode, base64Str };
+            var res = new { imgcode= imgcode.ToLower(), base64Str };
             return new Models.JsonpResultAPI<object>(res, callback);
         }
         #endregion
