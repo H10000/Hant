@@ -4,9 +4,10 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Hant.Frame.Helper
 {
-    public class AccountContext:DbContext
+    public class AccountContext : DbContext
     {
-        public AccountContext():base("AccountContext")
+        public AccountContext()
+            : base("AccountContext")
         {
 
         }

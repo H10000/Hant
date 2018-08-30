@@ -1,9 +1,0 @@
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\bin\Debug\netstandard2.0\Hant.Frame.Helper.deps.json
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\bin\Debug\netstandard2.0\Hant.Frame.Helper.dll
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\netstandard2.0\Hant.Frame.Helper.csprojResolveAssemblyReference.cache
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\netstandard2.0\Hant.Frame.Helper.csproj.CoreCompileInputs.cache
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\netstandard2.0\Hant.Frame.Helper.AssemblyInfoInputs.cache
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\netstandard2.0\Hant.Frame.Helper.AssemblyInfo.cs
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\bin\Debug\netstandard2.0\Hant.Frame.Helper.pdb
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\netstandard2.0\Hant.Frame.Helper.dll
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\netstandard2.0\Hant.Frame.Helper.pdb
