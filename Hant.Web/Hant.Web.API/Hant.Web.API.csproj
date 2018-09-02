@@ -127,10 +127,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="DAL\AccountContext.cs" />
+    <Compile Include="DAL\Entity\sys_user.cs" />
+    <Compile Include="DAL\IGenericRepository.cs" />
+    <Compile Include="DAL\Repository\GenericRepository.cs" />
+    <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\ImgeHelper.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\JsonpResultAPI.cs" />
     <Compile Include="Models\JsonpResultMVC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
