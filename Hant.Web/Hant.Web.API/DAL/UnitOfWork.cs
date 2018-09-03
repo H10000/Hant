@@ -11,7 +11,7 @@ namespace Hant.Web.API.DAL
     {
         private AccountContext context = new AccountContext();
         private GenericRepository<sys_user> sys_userRepository;
-
+        private GenericRepository<sys_user_authorization> sys_user_authorizationRepository;
         public GenericRepository<sys_user> Sys_userRepository
         {
             get
@@ -23,15 +23,28 @@ namespace Hant.Web.API.DAL
                 return sys_userRepository;
             }
         }
+
+        public GenericRepository<sys_user_authorization> Sys_user_authorizationRepository
+        {
+            get
+            {
+                if (sys_user_authorizationRepository == null)
+                {
+                    sys_user_authorizationRepository = new GenericRepository<sys_user_authorization>(context);
+                }
+                return sys_user_authorizationRepository;
+            }
+        }
         public void Save()
         {
             context.SaveChanges();
         }
+
         private bool disposed = false;
         public void Dispose()
-         {
-             Dispose(true);
-             GC.SuppressFinalize(this);
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
         protected void Dispose(bool disposing)
         {

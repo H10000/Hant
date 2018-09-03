@@ -5,13 +5,15 @@ using System.Web;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Web.Http;
+using Hant.Web.API.DAL;
+using Hant.Web.API.DAL.Entity;
 
 namespace Hant.Web.API.Controllers
 {
     [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
-
+        UnitOfWork db = new UnitOfWork();
         #region 获取验证码图片
         [Route("GetImageCode")]
         [HttpGet]
@@ -19,7 +21,7 @@ namespace Hant.Web.API.Controllers
         {
             string imgcode = Helper.ImgeHelper.getCode();
             string base64Str = Helper.ImgeHelper.ImgToBase64String(Helper.ImgeHelper.CreateCheckCodeImage(imgcode));
-            var res = new { imgcode= imgcode.ToLower(), base64Str };
+            var res = new { imgcode = imgcode.ToLower(), base64Str };
             return new Models.JsonpResultAPI<object>(res, callback);
         }
         #endregion
@@ -38,8 +40,7 @@ namespace Hant.Web.API.Controllers
         public HttpResponseMessage ValidateNameIsExist(string Name, string callback)
         {
             var res = new { Result = "OK" };
-            string[] names = { "hantao", "wangyaya", "xidada", "zhangsan", "lisi" };
-            if (names.Select(e => e == Name).Count() > 0)
+            if (db.Sys_user_authorizationRepository.Get(fliter: e => e.LoginName == Name).ToList().Count > 0)
             {
                 res = new { Result = "NO" };
             }
