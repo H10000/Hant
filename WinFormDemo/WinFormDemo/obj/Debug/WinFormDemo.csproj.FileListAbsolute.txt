@@ -16,3 +16,6 @@ D:\Desktop\WinFormDemo\WinFormDemo\WinFormDemo\WinFormDemo\obj\Debug\WinFormDemo
 D:\Desktop\WinFormDemo\WinFormDemo\WinFormDemo\WinFormDemo\obj\Debug\WinFormDemo.csproj.GenerateResource.Cache
 D:\Desktop\WinFormDemo\WinFormDemo\WinFormDemo\WinFormDemo\obj\Debug\WinFormDemo.exe
 D:\Desktop\WinFormDemo\WinFormDemo\WinFormDemo\WinFormDemo\obj\Debug\WinFormDemo.pdb
+D:\个人\Hant\Hant\WinFormDemo\WinFormDemo\bin\Debug\WinFormDemo.exe.config
+D:\个人\Hant\Hant\WinFormDemo\WinFormDemo\obj\Debug\WinFormDemo.exe
+D:\个人\Hant\Hant\WinFormDemo\WinFormDemo\obj\Debug\WinFormDemo.pdb

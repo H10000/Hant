@@ -29,13 +29,12 @@ namespace Hant.Web.API.DAL
         }
         private bool disposed = false;
         public void Dispose()
-         {
-             Dispose(true);
-             GC.SuppressFinalize(this);
-        }
-        protected void Dispose(bool disposing)
         {
-
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
             if (!disposed)
             {
                 if (disposing)
