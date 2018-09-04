@@ -129,6 +129,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="DAL\AccountContext.cs" />
     <Compile Include="DAL\Entity\sys_user.cs" />
+    <Compile Include="DAL\Entity\sys_user_authorization.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
@@ -152,7 +153,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

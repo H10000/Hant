@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hant.Web.API.DAL.Entity
 {
-    public class sys_user
+    public class sys_user_authorization
     {
         [Key]
         [Required]
@@ -13,15 +13,18 @@ namespace Hant.Web.API.DAL.Entity
         public string UserID { get; set; }
 
         [StringLength(50)]
-        public string UserName { get; set; }
+        public string LoginName { get; set; }
 
         [StringLength(20)]
-        public string Mobile { get; set; }
+        public string LoginPwd { get; set; }
 
-        [StringLength(64)]
-        public string Email { get; set; }
+        public int LoginType { get; set; }
 
-        public string Photo { get; set; }
+        public int Status { get; set; }
+
+        public DateTime? EffectiveTime { get; set; }
+
+        public DateTime? InvalidTime { get; set; }
 
         public DateTime? CreateTime { get; set; }
 
