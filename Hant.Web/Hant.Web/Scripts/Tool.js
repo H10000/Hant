@@ -31,3 +31,27 @@ function uuid(len, radix) {
     }
     return uuid.join('');
 }
+
+//保存Cookie
+function SetCookie(name, value) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() + (60 * 1000));
+    window.document.cookie = name + "=" + escape(value) + ";path=/";//; expires=" + exp.toGMTString() + "
+}
+//获取Cookie
+function GetCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+    if (arr = document.cookie.match(reg))
+
+        return unescape(arr[2]);
+    else
+        return null;
+}
+//删除Cookie
+function DeleteCookie(name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() -1000);
+    var cval = GetCookie(name);
+    window.document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString() + ";path=/";
+}

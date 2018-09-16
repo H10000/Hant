@@ -1,0 +1,31 @@
+﻿
+@Html.Partial("~/Views/Shared/LeftMenu.cshtml")
+<div id="RightContent" class="layui-card layui-inline" style="float: left; margin-left: 10px; width: calc(100% - 220px);overflow:auto;">
+    <div class="layui-card-header layui-form" style="padding: 10px 0 10px 0;">
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width:auto;">用户名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="SearchUserName" class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width:auto;">手机号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="SearchPhone" class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-inline">
+            <div class="layui-input-inline" style="padding: 0 0 10px;margin-left:20px;">
+                <input type="checkbox" name="SearchStatus" lay-skin="switch" lay-text="启用|禁用" checked>
+            </div>
+        </div>
+        <div class="layui-inline" style="margin-left:20px;">
+            <button lay-submit lay-filter="SearchButton" class="layui-btn">搜索</button>
+        </div>
+    </div>
+    <div class="layui-card-body" style="overflow:auto;">
+        <table id="table1" lay-filter="table1"></table>
+    </div>
+</div>
+<script src="~/Scripts/RightContent.js"></script>
+<script src="~/Scripts/UserAdmin.js"></script>

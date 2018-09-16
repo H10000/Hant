@@ -8,17 +8,15 @@ using System.Text;
 
 namespace Hant.Web.API.Models
 {
-    public class JsonpResultAPI<T> : HttpResponseMessage 
+    public class JsonpResultAPI<T> : HttpResponseMessage
     {
         private T Obj { get; set; }
-        private string CallbackName { get; set; }
 
-        public JsonpResultAPI(T obj, string callbackname)
+        public JsonpResultAPI(T obj)
         {
             Obj = obj;
-            CallbackName = callbackname;
-            var jsonp = CallbackName + "(" + JsonConvert.SerializeObject(Obj) + ")";
-            Content = new StringContent(jsonp, Encoding.GetEncoding("UTF-8"), "application/json"); 
+            var jsonp = JsonConvert.SerializeObject(Obj);
+            Content = new StringContent(jsonp, Encoding.GetEncoding("UTF-8"), "application/json");
         }
     }
 }

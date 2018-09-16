@@ -87,3 +87,7 @@ D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.dll
 D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.SqlServer.dll
 D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.xml
 D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\EntityFramework.SqlServer.xml
+D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\Hant.Frame.Helper.dll
+D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\Hant.Frame.Helper.pdb
+D:\Hant\Hant\Hant.Web\Hant.Web.API\bin\Hant.Frame.Helper.dll.config
+D:\Hant\Hant\Hant.Web\Hant.Web.API\obj\Debug\Hant.Web.API.csprojResolveAssemblyReference.cache

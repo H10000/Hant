@@ -46,9 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountContext.cs" />
-    <Compile Include="AccountInitilizer.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="EncryptPwd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

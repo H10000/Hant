@@ -12,7 +12,8 @@ namespace Hant.Web.API.DAL
     /// <typeparam name="T"></typeparam>
     public interface IGenericRepository<T> where T : class
     {
-        IEnumerable<T> Get(Expression<Func<T, bool>> fliter = null, Expression<Func<T, bool>> orderBy = null, string includeProperties = "");
+        IEnumerable<T> Get(Expression<Func<T, bool>> fliter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, int page = 0, int limit = 0);
+        int Num(Expression<Func<T, bool>> fliter = null);
         T Find(int id);
         void Insert(T t);
         /// <summary>

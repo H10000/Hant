@@ -5,7 +5,6 @@ D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\bin\Debug\EntityFramework.dll
 D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\bin\Debug\EntityFramework.SqlServer.dll
 D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\bin\Debug\EntityFramework.xml
 D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\bin\Debug\EntityFramework.SqlServer.xml
-D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\Hant.Frame.Helper.csprojResolveAssemblyReference.cache
 D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\Hant.Frame.Helper.csproj.CoreCompileInputs.cache
 D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\Hant.Frame.Helper.csproj.CopyComplete
 D:\Hant\Hant\Hant.Web\Hant.Frame.Helper\obj\Debug\Hant.Frame.Helper.dll

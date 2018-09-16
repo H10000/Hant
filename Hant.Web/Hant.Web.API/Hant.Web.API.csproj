@@ -120,14 +120,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BLL\Common\Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="DAL\AccountContext.cs" />
+    <Compile Include="DAL\Entity\sys_code_number.cs" />
     <Compile Include="DAL\Entity\sys_user.cs" />
     <Compile Include="DAL\Entity\sys_user_authorization.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
@@ -136,9 +140,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\EnumClass.cs" />
     <Compile Include="Helper\ImgeHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\JsonpResultAPI.cs" />
+    <Compile Include="Models\JsonpResultAPI_JSONP.cs" />
     <Compile Include="Models\JsonpResultMVC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -155,6 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hant.Frame.Helper\Hant.Frame.Helper.csproj">
+      <Project>{5eaece68-5c3c-4087-8733-e63fa0f89a77}</Project>
+      <Name>Hant.Frame.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

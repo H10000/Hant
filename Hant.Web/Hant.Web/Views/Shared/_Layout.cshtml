@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Hant.Web</title>
     @Styles.Render("~/Content/layui/src/css/layui.css")
-    @Styles.Render("~/Content/_Layout.css");
+    @Styles.Render("~/Content/_Layout.css")
 </head>
-<body class="layui-layout-body">
+<body class="layui-layout-body" style="background-color:#e2e2e2;">
     <div id="menu" class="layui-layout layui-layout-admin">
         <div class="layui-header">
             <div class="layui-logo">Hant多多</div>
@@ -24,16 +24,12 @@
                 </li>
             </ul>
         </div>
-        <div class="layui-layout">
-            <div class="layui-fluid" style="margin: 20px 20px 0px 20px;" v-html="navmenuhtml">
+
+        <div class="layui-layout" style="background-color:#FFF;">
+            <hr>
+            <div class="layui-fluid" style="margin: 0px 20px 0px 20px;" v-html="navmenuhtml">
             </div>
             <hr>
-        </div>
-        <div class="layui-body" style="margin-top:60px;">
-            @RenderBody()
-            <div class="layui-footer" style="left:0px;text-align:center;">
-                XXXXX提供技术支持
-            </div>
         </div>
     </div>
     @Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
@@ -42,5 +38,19 @@
     @Scripts.Render("~/Scripts/Config.js")
     @Scripts.Render("~/Scripts/Tool.js")
     @Scripts.Render("~/Scripts/_Layout.js")
+    <div class="layui-layout">
+        @RenderBody()
+        <div class="layui-footer" style="left:0px;text-align:center;">
+            XXXXX提供技术支持
+        </div>
+    </div>
+    <script type="text/html" id="Tplbar">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script type="text/html" id="TplStatus">
+        <input type="checkbox" name="Status" value="{{d.ID}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="TplStatus" {{ d.Status == 1 ? "checked" : "" }}>
+    </script>
 </body>
 </html>

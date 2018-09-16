@@ -16,25 +16,32 @@ namespace Hant.Web.API.DAL.Repository
             db = context;
             DbSet = db.Set<T>();
         }
-        public virtual IEnumerable<T> Get(Expression<Func<T, bool>> fliter = null, Expression<Func<T, bool>> orderBy = null, string includeProperties = "")
+        public virtual IEnumerable<T> Get(Expression<Func<T, bool>> fliter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, int page = 0, int limit = 0)
         {
             IQueryable<T> query = DbSet;
             if (fliter != null)
             {
                 query = query.Where(fliter);
             }
-            if (!string.IsNullOrEmpty(includeProperties))
-            {
-                foreach (var includePropery in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(includePropery);
-                }
-            }
+
             if (orderBy != null)
             {
-                query = query.OrderBy(orderBy);
+                query = orderBy(query);
             }
-            return query;
+            if (page != 0 && limit != 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            return query.ToList();
+        }
+        public virtual int Num(Expression<Func<T, bool>> fliter = null)
+        {
+            IQueryable<T> query = DbSet;
+            if (fliter != null)
+            {
+                query = query.Where(fliter);
+            }
+            return query.Count();
         }
         public virtual T Find(int id)
         {

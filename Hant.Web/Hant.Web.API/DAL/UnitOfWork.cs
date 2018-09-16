@@ -12,6 +12,7 @@ namespace Hant.Web.API.DAL
         private AccountContext context = new AccountContext();
         private GenericRepository<sys_user> sys_userRepository;
         private GenericRepository<sys_user_authorization> sys_user_authorizationRepository;
+        private GenericRepository<sys_code_number> sys_code_numberRepository;
         public GenericRepository<sys_user> Sys_userRepository
         {
             get
@@ -33,6 +34,18 @@ namespace Hant.Web.API.DAL
                     sys_user_authorizationRepository = new GenericRepository<sys_user_authorization>(context);
                 }
                 return sys_user_authorizationRepository;
+            }
+        }
+
+        public GenericRepository<sys_code_number> Sys_code_numberRepository
+        {
+            get
+            {
+                if (sys_code_numberRepository == null)
+                {
+                    sys_code_numberRepository = new GenericRepository<sys_code_number>(context);
+                }
+                return sys_code_numberRepository;
             }
         }
         public void Save()

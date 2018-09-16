@@ -1,6 +1,7 @@
-﻿layui.use(['layer', 'form'], function () {
+﻿layui.use(['layer', 'form', 'element'], function () {
     var layer = layui.layer;
-    var layui_form = layui.form;
+    var form = layui.form;
+    var element = layui.element;
     var menujson;
     var vm;
     var layer_denglu_zhuce_id;
@@ -18,6 +19,12 @@
                 var leftmenuhtml = "";
                 var rightmenuhtml = "";
                 var navmenuhtml = "";
+                var loginCookie = GetCookie("HantLoginName");
+                //if (loginCookie != null) {
+                //    setInterval(SetCookie, 1000, "HantLoginName", loginCookie);
+                //}
+                var isDengLu = loginCookie == null ? false : true;
+
                 //
                 $.each(menujson.leftmenu, function (index, item) {
                     if (item.child.length > 0) {
@@ -56,14 +63,11 @@
                         leftmenuhtml: leftmenuhtml
                         , rightmenuhtml: rightmenuhtml
                         , navmenuhtml: navmenuhtml
-                        , isDengLu: false
+                        , isDengLu: isDengLu
                         , isSend: true
                     }
-
                 });
-                layui.use('element', function () {
-                    var element = layui.element;
-                })
+                element.init();
             },
             error: function (data) {
                 layer.alert("请联系系统管理员!");
@@ -162,7 +166,24 @@
             if (validatePwd1($obj2))
                 if (validatePwd2($obj3, $obj2))
                     if (validateImgCode($obj4)) {
-                        layer.msg("成功！");
+                        var LoginName = $("#zhuce_name_01").val();
+                        var Pwd = $("#zhuce_pwd_01").val();
+                        $.ajax({
+                            type: "GET",
+                            data: { LoginName: LoginName, Pwd: Pwd },
+                            dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+                            jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+                            url: ApiConfig.url + "account/SaveZhuCeInfoOfLoginName",
+                            success: function (data) {
+                                var resultJSON = data;
+                                if (resultJSON.Result == "OK") {
+                                    layer.alert("成功！");
+                                }
+                            },
+                            error: function (data) {
+                                layer.alert("请联系系统管理员!");
+                            }
+                        })
                     }
         return false;
     });
@@ -178,7 +199,70 @@
     });
     //
     $(document).on('click', '#denglu_tijiao_1', function () {
-        layer.msg("11");
+        var LoginName = $("#denglu_name_01");
+        var Pwd = $("#denglu_pwd_01");
+        var $imgCode = $("#denglu_code_01");
+        if (LoginName.val() == "") {
+            layer.tips("用户名不能为空！", LoginName, {
+                tips: [2, '#FF5722'],
+                time: 2000,
+                closeBtn: 1
+            });
+        }
+        else if (Pwd.val() == "") {
+            layer.tips("密码不能为空！", Pwd, {
+                tips: [2, '#FF5722'],
+                time: 2000,
+                closeBtn: 1
+            });
+        }
+        else if ($imgCode.val() != $("#hidimgcode").val()) {
+            validateImgCode($imgCode);
+        }
+        else {
+            $.ajax({
+                type: "GET",
+                data: { LoginName: LoginName.val(), Pwd: Pwd.val() },
+                dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+                jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+                jsonpCallback: 'handleResponse', //设置回调函数名
+                url: ApiConfig.url + "account/ValidateDengLuByLoginName",
+                success: function (data) {
+                    var resultJSON = data;
+                    var tip;
+                    if (resultJSON.Result == "1") {
+                        tip = "用户名不存在！";
+                        layer.tips(tip, LoginName, {
+                            tips: [2, '#FF5722'],
+                            time: 2000,
+                            closeBtn: 1
+                        });
+                    } else if (resultJSON.Result == "2") {
+                        tip = "密码不正确！";
+                        layer.tips(tip, Pwd, {
+                            tips: [2, '#FF5722'],
+                            time: 2000,
+                            closeBtn: 1
+                        });
+                    }
+                    else {
+                        vm.isDengLu = true;
+                        layer.msg('登录成功', {
+                            icon: 1,
+                            time: 1000
+                        }, function () {
+                            layer.close(layer_denglu_zhuce_id);
+                            element.render('nav');
+                            //保存Cookie
+                            SetCookie("HantLoginName", LoginName.val());
+                        });
+                    }
+                },
+                error: function (data) {
+                    layer.alert("请联系系统管理员!");
+                }
+            })
+        }
         return false;
     });
     $(document).on('click', '#denglu_quxiao_1', function () {
@@ -190,6 +274,14 @@
     });
     $(document).on('click', '#denglu_quxiao_2', function () {
         layer.close(layer_denglu_zhuce_id);
+    });
+    //退出登录
+    $(document).on('click', '#menu_right_02', function () {
+        DeleteCookie("HantLoginName");
+        layer.msg('退出成功', {
+            icon: 1,
+            time: 1000
+        });
     });
     //发送短信
     $(document).on('click', '#zhuce_sendmessage_01,#denglu_sendmessage_01', function () {
@@ -261,27 +353,35 @@
         } else if (!reg.test(name)) {
             tip = "用户名只能包括中文、英文、数字、下划线，且必须以中文或英文开始,长度大于4！";
         }
-        $.ajax({
-            type: "GET",
-            data: { Name: obj.val() },
-            dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
-            jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
-            jsonpCallback: 'handleResponse', //设置回调函数名
-            url: ApiConfig.url + "account/ValidateNameIsExist",
-            success: function (data) {
-                var resultJSON = data;
-                if (resultJSON.Result == "NO") {
-                    tip = "用户名已存在！";
+        else {
+            $.ajax({
+                type: "GET",
+                data: { Name: obj.val() },
+                dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+                async: false,
+                jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+                jsonpCallback: 'handleResponse', //设置回调函数名
+                url: ApiConfig.url + "account/ValidateNameIsExist",
+                success: function (data) {
+                    var resultJSON = data;
+                    if (resultJSON.Result == "NO") {
+                        tip = "用户名已存在！";
+                        layer.tips(tip, obj, {
+                            tips: [2, '#FF5722'],
+                            time: 2000,
+                            closeBtn: 1
+                        });
+                    }
+                },
+                error: function (data) {
+                    layer.alert("请联系系统管理员!");
                 }
-            },
-            error: function (data) {
-                layer.alert("请联系系统管理员!");
-            }
-        })
+            })
+        }
         if (tip != undefined) {
             layer.tips(tip, obj, {
-                tips: [1, '#FF5722'],
-                time: 10000,
+                tips: [2, '#FF5722'],
+                time: 2000,
                 closeBtn: 1
             });
             return false;
@@ -300,8 +400,8 @@
         }
         if (tip != undefined) {
             layer.tips(tip, obj, {
-                tips: [1, '#FF5722'],
-                time: 5000,
+                tips: [2, '#FF5722'],
+                time: 2000,
                 closeBtn: 1
             });
             return false;
@@ -319,8 +419,8 @@
         }
         if (tip != undefined) {
             layer.tips(tip, obj, {
-                tips: [1, '#FF5722'],
-                time: 5000,
+                tips: [2, '#FF5722'],
+                time: 2000,
                 closeBtn: 1
             });
             return false;
@@ -341,7 +441,7 @@
         if (tip != undefined) {
             layer.tips(tip, obj, {
                 tips: [1, '#FF5722'],
-                time: 5000,
+                time: 2000,
                 closeBtn: 1
             });
             return false;

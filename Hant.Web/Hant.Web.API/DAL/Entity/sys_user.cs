@@ -29,5 +29,7 @@ namespace Hant.Web.API.DAL.Entity
 
         [StringLength(200)]
         public string Remark { get; set; }
+
+        public int Status { get; set; }
     }
 }

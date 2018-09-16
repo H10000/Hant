@@ -15,8 +15,11 @@ namespace Hant.Web.API.DAL.Entity
         [StringLength(50)]
         public string LoginName { get; set; }
 
-        [StringLength(20)]
+        [StringLength(256)]
         public string LoginPwd { get; set; }
+
+        [StringLength(20)]
+        public string Salt { get; set; }
 
         public int LoginType { get; set; }
 
