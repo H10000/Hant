@@ -68,6 +68,7 @@
                     }
                 });
                 element.init();
+                $("#RightContent").height($(document).height() - 160);
             },
             error: function (data) {
                 layer.alert("请联系系统管理员!");

@@ -300,6 +300,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\RightContent.js" />
     <Content Include="Scripts\Tool.js" />
+    <Content Include="Scripts\RoleAdmin.js" />
     <Content Include="Scripts\UserAdmin.js" />
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\_Layout.js" />

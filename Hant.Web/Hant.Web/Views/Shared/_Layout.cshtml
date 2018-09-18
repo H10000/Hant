@@ -39,7 +39,10 @@
     @Scripts.Render("~/Scripts/Tool.js")
     @Scripts.Render("~/Scripts/_Layout.js")
     <div class="layui-layout">
-        @RenderBody()
+        @Html.Partial("~/Views/Shared/LeftMenu.cshtml")
+        <div id="RightContent" class="layui-inline" style="background-color: #fff;float: left; margin-left: 10px; width: calc(100% - 220px);overflow:auto;">
+            @RenderBody()
+        </div>
         <div class="layui-footer" style="left:0px;text-align:center;">
             XXXXX提供技术支持
         </div>
@@ -51,6 +54,67 @@
     </script>
     <script type="text/html" id="TplStatus">
         <input type="checkbox" name="Status" value="{{d.ID}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="TplStatus" {{ d.Status == 1 ? "checked" : "" }}>
+    </script>
+    <script type="text/html" id="Tpltoolbar">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+            <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+        </div>
+    </script>
+    <script type="text/html" id="TplAdd">
+        <div id="add_html">
+            <div class="hant-site-block">
+                <div class="layui-tab layui-tab-card">
+                    <div class="layui-form">
+                        {{# layui.each(d.list,function(index,item){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <input name="{{item.name}}" type="{{item.type}}" placeholder="请输入{{item.title}}" class="layui-input">
+                            </div>
+                        </div>
+                        {{# }); }}
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button lay-submit lay-filter="AddButton" class="layui-btn">提交</button>
+                                <button id='add_quxiao_1' class="layui-btn layui-btn-primary">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="TplEdit">
+        <div id="add_html">
+            <div class="hant-site-block">
+                <div class="layui-tab layui-tab-card">
+                    <div class="layui-form">
+                        {{# layui.each(d.list,function(index,item){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <input name="{{item.name}}" value="{{item.value}}" type="{{item.type}}" placeholder="请输入{{item.title}}" class="layui-input">
+                            </div>
+                        </div>
+                        {{# }); }}
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button lay-submit lay-filter="EditButton" class="layui-btn">提交</button>
+                                <button id='add_quxiao_1' class="layui-btn layui-btn-primary">取消</button>
+                                <input hidden name="ID" value="{{d.id}}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="TplDel">
+        {{# }}
+    </script>
+    <script type="text/html" id="TplView">
+        {{# }}
     </script>
 </body>
 </html>

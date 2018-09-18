@@ -44,7 +44,7 @@
     {
       "name": "后台管理",
       "code": "05",
-      "url": "../Admin/RoleAdmin",
+      "url": "../Admin/UserAdmin",
       "child": [],
       "leftchild": [
         {

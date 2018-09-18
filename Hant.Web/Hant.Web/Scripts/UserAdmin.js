@@ -3,26 +3,8 @@
     var table = layui.table;
     var form = layui.form;
     $(document).ready(function () {
-        table.render({
-            elem: '#table1'
-            , height: 312
-            , url: ApiConfig.url + "admin/GetUserInfoList" //数据接口
-            , page: true //开启分页
-            , cols: [[ //表头
-                { type: 'numbers' }
-                , { type: 'checkbox' }
-                , { field: 'ID', title: 'ID', hide: true }
-                , { field: 'UserID', title: '用户唯一标示', hide: true }
-                , { field: 'UserName', title: '用户名', align: 'center' }
-                , { field: 'Mobile', title: '手机号', width: 150, align: 'center' }
-                , {
-                    field: 'Status', title: '账号状态', width: 95, templet: '#TplStatus'
-                }
-                , { field: 'right', width: 177, align: 'center', toolbar: '#Tplbar' }
-            ]]
-            , page: true
-            , height: "full-265"
-        });
+        var obj = { SearchUserName: "", SearchPhone: "", SearchStatus: 1 }
+        init(obj);
         element.init();
     });
 
@@ -70,14 +52,20 @@
     });
     //监听搜索按钮
     form.on('submit(SearchButton)', function (data) {
+        var obj = { SearchUserName: data.field.SearchUserName, SearchPhone: data.field.SearchPhone, SearchStatus: data.field.SearchStatus ? 1 : 0 }
+        init(obj);
+        return false;
+    });
+    //加载表格
+    var init = function (obj) {
         table.render({
             elem: '#table1'
             , height: 312
             , url: ApiConfig.url + "admin/GetUserInfoList" //数据接口
             , where: {
-                SearchUserName: data.field.SearchUserName
-                , SearchPhone: data.field.SearchPhone
-                , SearchStatus: data.field.SearchStatus ? 1 : 0
+                SearchUserName: obj.SearchUserName
+                , SearchPhone: obj.SearchPhone
+                , SearchStatus: obj.SearchStatus
             }
             , page: true //开启分页
             , cols: [[ //表头
@@ -93,8 +81,10 @@
                 , { field: 'right', width: 177, align: 'center', toolbar: '#Tplbar' }
             ]]
             , page: true
-            , height: "full-265"
+            , height: "full-285"
+            , toolbar: '#Tpltoolbar'
+            , defaultToolbar: ['filter', 'print', 'exports']//自由配置头部工具栏右侧的图标 filter: 显示筛选图标 exports: 显示导出图标 print: 显示打印图标
+
         });
-        return false;
-    });
+    }
 });

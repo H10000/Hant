@@ -120,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -132,6 +131,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="DAL\AccountContext.cs" />
     <Compile Include="DAL\Entity\sys_code_number.cs" />
+    <Compile Include="DAL\Entity\sys_role.cs" />
     <Compile Include="DAL\Entity\sys_user.cs" />
     <Compile Include="DAL\Entity\sys_user_authorization.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
