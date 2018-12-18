@@ -67,5 +67,18 @@ namespace Hant.Web.API.DAL.Repository
             T entity = DbSet.Find(id);
             DbSet.Remove(entity);
         }
+
+        public virtual void DeleteByCondition(Expression<Func<T, bool>> fliter = null)
+        {
+            IQueryable<T> query = DbSet;
+            if (fliter != null)
+            {
+                query = query.Where(fliter);
+                foreach (T entity in query)
+                {
+                    DbSet.Remove(entity);
+                }
+            }
+        }
     }
 }

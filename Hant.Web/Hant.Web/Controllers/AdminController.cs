@@ -28,5 +28,10 @@ namespace Hant.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult WorkFlowAdmin()
+        {
+            return View();
+        }
     }
 }

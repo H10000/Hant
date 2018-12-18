@@ -1,0 +1,2 @@
+1、一个字符床是否包含另外一个
+   instr(address, 'beijing')>0

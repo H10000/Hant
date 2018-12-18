@@ -184,6 +184,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Color.css" />
+    <Content Include="Content\layui\Extend\css\formSelects-v4.css" />
+    <Content Include="Content\layui\Extend\js\dltable.js" />
+    <Content Include="Content\layui\Extend\js\formSelects-v4.js" />
+    <Content Include="Content\layui\Extend\js\treeGrid.js" />
     <Content Include="Content\layui\src\css\layui.css" />
     <Content Include="Content\layui\src\css\layui.mobile.css" />
     <Content Include="Content\layui\src\css\modules\code.css" />
@@ -299,6 +303,8 @@
     <Content Include="Scripts\Config.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\RightContent.js" />
+    <Content Include="Scripts\OuAdmin.js" />
+    <Content Include="Scripts\WorkFlowAdmin.js" />
     <Content Include="Scripts\Tool.js" />
     <Content Include="Scripts\RoleAdmin.js" />
     <Content Include="Scripts\UserAdmin.js" />
@@ -364,6 +370,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\SetAdmin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\WorkFlowAdmin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

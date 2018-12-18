@@ -1,0 +1,86 @@
+jquery在线库：http://libs.baidu.com/jquery/1.11.1/jquery.min.js 或 http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js
+svn账号：tao.han 123456
+
+div宽度为百分比减去固定值 width:calc(100% - 180px)-两边要加空格
+
+
+ --建立ORACLE数据库链接服务器
+ EXEC sp_addlinkedserver
+ @server =N'ORCL_DaZu', --要创建的链接服务器别名
+ @srvproduct=N'Oracle', --产品名称
+ @provider=N'OraOLEDB.Oracle', --OLE DB 驱动名称
+ @datasrc=N'ORCL_DaZu' --数据源oracle"ora10g"network"admin"tnsnames.ora查看
+  
+ EXEC sp_addlinkedsrvlogin
+ 'ORCL_DaZu', --已建立的链接服务器名
+ 'false', -- 固定 */
+ NULL, --为每个登陆SQL SERVER的用户使用此链接服务器,则写用户名*/
+ 'YDHLUser', --帐号(oracle)
+ 'YDHLUser' --密码 
+ exec sp_serveroption 'ORCL_DaZu','rpc out','true'
+ exec sp_serveroption 'ORCL_DaZu','rpc','true'
+
+查询方法
+SELECT * FROM openquery(ORCL_DaZu,'SELECT * FROM  QAZHIS.YDHL_PATIENT')
+
+--建立SQL SERVER数据库链接服务器
+exec sp_addlinkedserver   'EmrrecipeList', ' ', 'SQLOLEDB ', '192.168.60.178,49158' 
+exec sp_addlinkedsrvlogin  'EmrrecipeList', 'false ',null, 'jpzx', 'jpzx123' 
+
+在本地开发环境没问题,但是发布到服务器出现:未能写入输出文件“c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.net Files\root\106f9ae8\cc0e1169\App_global.asax.haz99mum.dll”--“拒绝访问。 ”错误
+
+解决方法:
+
+1,通常的解决方法：原因是由于系统目录下的Temp目录无相应的权限所致，具体操作如下：C:\Windows\temp-->属性-->安全-->编辑-->添加NETWORK SERVICE用户的读写权限就可以解决.
+
+2,打开服务器系统c盘，打开window， 右键temp 属性 安全 编辑 添加IIS_IUSRS 用户控制权限添加修改和写入权限即可。这是Windows Server 2008 R2 标准版 SP1 64位中文版解决办法。(我的是这个问题.这样就解决了,上面的network service不用也行)
+
+大足打印授权：LODOP.SET_LICENSES("","4924F29A52DB2BEC25BE99670FC750A0","C94CEE276DB2187AE6B65D56B3FC2848","4724F3B7B8AA0BECBCBC99682C2D1F80");
+
+延安打印授权：LODOP.SET_LICENSES("","647464550565952625756666856128","688858710010010811411756128900","");
+
+端口占用 netstat -ano | findstr "80"
+
+查询出来
+select    
+    request_session_id spid,   
+    OBJECT_NAME(resource_associated_entity_id) tableName    
+from    
+    sys.dm_tran_locks   
+where    
+    resource_type='OBJECT  
+杀死死锁进程
+kill spid 
+
+sql server 取时间
+select dateadd(day, -1, getdate()) 
+
+修改字段长度
+ alter table [ProRecord]alter column EventContent varchar(100)
+
+新建DataTable
+DataTable dt=new DataTable("cart");  
+   DataColumn dc1=new DataColumn("prizename",Type.GetType("System.String"));  
+   DataColumn dc2=new DataColumn("point",Type.GetType("System.Int16"));  
+   DataColumn dc3=new DataColumn("number",Type.GetType("System.Int16"));  
+   DataColumn dc4=new DataColumn("totalpoint",Type.GetType("System.Int64"));  
+   DataColumn dc5=new DataColumn("prizeid",Type.GetType("System.String"));  
+   dt.Columns.Add(dc1);  
+   dt.Columns.Add(dc2);  
+   dt.Columns.Add(dc3);  
+   dt.Columns.Add(dc4);  
+   dt.Columns.Add(dc5);  
+//以上代码完成了DataTable的构架，但是里面是没有任何数据的  
+   for(int i=0;i<10;i++)  
+   {  
+    DataRow dr=dt.NewRow();  
+    dr["prizename"]="娃娃";  
+    dr["point"]=10;  
+    dr["number"]=1;  
+    dr["totalpoint"]=10;  
+    dr["prizeid"]="001";  
+    dt.Rows.Add(dr);  
+   }  
+
+
+NJVYC-BMHX2-G77MM-4XJMR-6Q8QF

@@ -8,6 +8,7 @@
     <title>Hant.Web</title>
     @Styles.Render("~/Content/layui/src/css/layui.css")
     @Styles.Render("~/Content/_Layout.css")
+    @Styles.Render("~/Content/layui/Extend/css/formSelects-v4.css")
 </head>
 <body class="layui-layout-body" style="background-color:#e2e2e2;">
     <div id="menu" class="layui-layout layui-layout-admin">
@@ -67,12 +68,50 @@
                 <div class="layui-tab layui-tab-card">
                     <div class="layui-form">
                         {{# layui.each(d.list,function(index,item){ }}
+                        {{# if(item.type=='multiSelect'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl">
+                                    {{# layui.each(item.data,function(index,item){ }}
+                                    <option value="{{item.value}}">{{item.name}}</option>
+                                    {{# }); }}
+                                </select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='radioSelect'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl" xm-select-radio>
+                                    {{# layui.each(item.data,function(index,item){ }}
+                                    <option value="{{item.value}}">{{item.name}}</option>
+                                    {{# }); }}
+                                </select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='multiTree'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl"></select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='radioTree'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl" xm-select-radio> </select>
+                            </div>
+                        </div>
+                        {{#  }else{ }}
                         <div class="layui-form-item">
                             <label class="layui-form-label">{{item.title}}</label>
                             <div class="layui-input-block">
                                 <input name="{{item.name}}" type="{{item.type}}" placeholder="请输入{{item.title}}" class="layui-input">
                             </div>
                         </div>
+                        {{# } }}
                         {{# }); }}
                         <div class="layui-form-item">
                             <div class="layui-input-block">
@@ -86,17 +125,55 @@
         </div>
     </script>
     <script type="text/html" id="TplEdit">
-        <div id="add_html">
+        <div id="edit_html">
             <div class="hant-site-block">
                 <div class="layui-tab layui-tab-card">
                     <div class="layui-form">
                         {{# layui.each(d.list,function(index,item){ }}
+                        {{# if(item.type=='multiSelect'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl">
+                                    {{# layui.each(item.data,function(index,item){ }}
+                                    <option value="{{item.value}}">{{item.name}}</option>
+                                    {{# }); }}
+                                </select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='radioSelect'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl" xm-select-radio>
+                                    {{# layui.each(item.data,function(index,item){ }}
+                                    <option value="{{item.value}}">{{item.name}}</option>
+                                    {{# }); }}
+                                </select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='multiTree'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl"></select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='radioTree'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl" xm-select-radio> </select>
+                            </div>
+                        </div>
+                        {{#  }else{ }}
                         <div class="layui-form-item">
                             <label class="layui-form-label">{{item.title}}</label>
                             <div class="layui-input-block">
                                 <input name="{{item.name}}" value="{{item.value}}" type="{{item.type}}" placeholder="请输入{{item.title}}" class="layui-input">
                             </div>
                         </div>
+                        {{# } }}
                         {{# }); }}
                         <div class="layui-form-item">
                             <div class="layui-input-block">
@@ -110,11 +187,61 @@
             </div>
         </div>
     </script>
-    <script type="text/html" id="TplDel">
-        {{# }}
-    </script>
     <script type="text/html" id="TplView">
-        {{# }}
+        <div id="view_html">
+            <div class="hant-site-block">
+                <div class="layui-tab layui-tab-card">
+                    <div class="layui-form">
+                        {{# layui.each(d.list,function(index,item){ }}
+                        {{# if(item.type=='multiSelect'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl">
+                                    {{# layui.each(item.data,function(index,item){ }}
+                                    <option value="{{item.value}}">{{item.name}}</option>
+                                    {{# }); }}
+                                </select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='radioSelect'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl" xm-select-radio>
+                                    {{# layui.each(item.data,function(index,item){ }}
+                                    <option value="{{item.value}}">{{item.name}}</option>
+                                    {{# }); }}
+                                </select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='multiTree'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl"></select>
+                            </div>
+                        </div>
+                        {{# }else if(item.type=='radioTree'){ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <select name="{{item.name}}" xm-select="select_{{item.name}}" xm-select-search="" xm-select-search-type="dl" xm-select-radio> </select>
+                            </div>
+                        </div>
+                        {{#  }else{ }}
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{{item.title}}</label>
+                            <div class="layui-input-block">
+                                <input name="{{item.name}}" value="{{item.value}}" type="{{item.type}}" placeholder="请输入{{item.title}}" class="layui-input">
+                            </div>
+                        </div>
+                        {{# } }}
+                        {{# }); }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </script>
 </body>
 </html>

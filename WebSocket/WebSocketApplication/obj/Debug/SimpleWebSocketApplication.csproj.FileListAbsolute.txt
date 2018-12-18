@@ -1,0 +1,17 @@
+C:\Users\Yatajga\documents\visual studio 2012\Projects\SimpleWebSocketApplication\SimpleWebSocketApplication\bin\SimpleWebSocketApplication.dll
+C:\Users\Yatajga\documents\visual studio 2012\Projects\SimpleWebSocketApplication\SimpleWebSocketApplication\bin\SimpleWebSocketApplication.pdb
+C:\Users\Yatajga\documents\visual studio 2012\Projects\SimpleWebSocketApplication\SimpleWebSocketApplication\obj\Debug\SimpleWebSocketApplication.csprojResolveAssemblyReference.cache
+C:\Users\Yatajga\documents\visual studio 2012\Projects\SimpleWebSocketApplication\SimpleWebSocketApplication\obj\Debug\SimpleWebSocketApplication.dll
+C:\Users\Yatajga\documents\visual studio 2012\Projects\SimpleWebSocketApplication\SimpleWebSocketApplication\obj\Debug\SimpleWebSocketApplication.pdb
+C:\Users\karen.tazayan\Documents\Visual Studio 2013\Projects\SimpleWebSocketApplication\bin\SimpleWebSocketApplication.dll.config
+C:\Users\karen.tazayan\Documents\Visual Studio 2013\Projects\SimpleWebSocketApplication\bin\SimpleWebSocketApplication.dll
+C:\Users\karen.tazayan\Documents\Visual Studio 2013\Projects\SimpleWebSocketApplication\bin\SimpleWebSocketApplication.pdb
+C:\Users\karen.tazayan\Documents\Visual Studio 2013\Projects\SimpleWebSocketApplication\obj\Debug\SimpleWebSocketApplication.dll
+C:\Users\karen.tazayan\Documents\Visual Studio 2013\Projects\SimpleWebSocketApplication\obj\Debug\SimpleWebSocketApplication.pdb
+C:\Users\H1595\Desktop\The simple WebSocket application in ASP.NET\C#\bin\SimpleWebSocketApplication.dll.config
+C:\Users\H1595\Desktop\The simple WebSocket application in ASP.NET\C#\bin\SimpleWebSocketApplication.dll
+C:\Users\H1595\Desktop\The simple WebSocket application in ASP.NET\C#\bin\SimpleWebSocketApplication.pdb
+C:\Users\H1595\Desktop\The simple WebSocket application in ASP.NET\C#\obj\Debug\SimpleWebSocketApplication.csprojResolveAssemblyReference.cache
+C:\Users\H1595\Desktop\The simple WebSocket application in ASP.NET\C#\obj\Debug\SimpleWebSocketApplication.csproj.CoreCompileInputs.cache
+C:\Users\H1595\Desktop\The simple WebSocket application in ASP.NET\C#\obj\Debug\SimpleWebSocketApplication.dll
+C:\Users\H1595\Desktop\The simple WebSocket application in ASP.NET\C#\obj\Debug\SimpleWebSocketApplication.pdb

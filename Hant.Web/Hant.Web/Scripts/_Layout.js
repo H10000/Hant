@@ -1,4 +1,10 @@
-﻿layui.use(['layer', 'form', 'element'], function () {
+﻿layui.config({
+    base: '../Content/layui/Extend/js/'
+}).extend({
+    formSelects: 'formSelects-v4',
+    treeGrid: 'treeGrid'
+});
+layui.use(['layer', 'form', 'element'], function () {
     var layer = layui.layer;
     var form = layui.form;
     var element = layui.element;

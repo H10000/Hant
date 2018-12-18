@@ -30,6 +30,22 @@ namespace Hant.Web.API.DAL
         /// 角色表
         /// </summary>
         DbSet<sys_role> sys_role { get; set; }
+
+        /// <summary>
+        /// 组织表
+        /// </summary>
+        DbSet<sys_group> sys_group { get; set; }
+
+        /// <summary>
+        /// 用户角色关系表
+        /// </summary>
+        DbSet<sys_user_role_relation> sys_user_role_relation { get; set; }
+
+        /// <summary>
+        /// 用户分组关系表
+        /// </summary>
+        DbSet<sys_user_group_relation> sys_user_group_relation { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //指定单数形式的表名

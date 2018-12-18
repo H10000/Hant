@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerManageRunningService", "newsWindowsService\TimerManageRunningService.csproj", "{52E2E1E3-7442-4538-B83D-9B8C7D91B3A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newsDataManage", "newsDataManage\newsDataManage.csproj", "{61119BC8-9E74-4EF3-ADF9-48C2AE140218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestApplication\TestApplication.csproj", "{7CD1D0D4-4C96-4686-874D-487C0ADBBBD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52E2E1E3-7442-4538-B83D-9B8C7D91B3A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E2E1E3-7442-4538-B83D-9B8C7D91B3A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E2E1E3-7442-4538-B83D-9B8C7D91B3A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E2E1E3-7442-4538-B83D-9B8C7D91B3A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61119BC8-9E74-4EF3-ADF9-48C2AE140218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61119BC8-9E74-4EF3-ADF9-48C2AE140218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61119BC8-9E74-4EF3-ADF9-48C2AE140218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61119BC8-9E74-4EF3-ADF9-48C2AE140218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD1D0D4-4C96-4686-874D-487C0ADBBBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD1D0D4-4C96-4686-874D-487C0ADBBBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD1D0D4-4C96-4686-874D-487C0ADBBBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD1D0D4-4C96-4686-874D-487C0ADBBBD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

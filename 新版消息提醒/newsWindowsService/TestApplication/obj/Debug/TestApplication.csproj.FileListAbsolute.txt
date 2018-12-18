@@ -1,0 +1,17 @@
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\TestApplication.exe.config
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\TestApplication.exe
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\TestApplication.pdb
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\newsDataManage.dll
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\TimerManageRunningService.dll
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\MySql.Data.dll
+D:\工作\消息提醒\newsWindowsService\TestApplication\bin\Debug\newsDataManage.pdb
+D:\工作\消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\工作\消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\工作\消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\工作\消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\工作\消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.exe
+D:\工作\消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.pdb
+D:\工作\新版消息提醒\newsWindowsService\TestApplication\bin\Debug\TestApplication.exe.config
+D:\工作\新版消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.exe
+D:\工作\新版消息提醒\newsWindowsService\TestApplication\obj\Debug\TestApplication.pdb

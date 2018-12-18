@@ -1,0 +1,11 @@
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\TimerManageRunningService.csproj.GenerateResource.Cache
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\TimerManageRunningService.pdb
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\TimerManageRunningService.pdb
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\TimerManageRunningService.ProjectInstaller.resources
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\TimerManageRunningService.exe.config
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\TimerManageRunningService.exe.manifest
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\TimerManageRunningService.application
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\TimerManageRunningService.exe
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\TimerManageRunningService.exe.manifest
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\TimerManageRunningService.application
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\TimerManageRunningService.exe

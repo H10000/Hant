@@ -71,6 +71,11 @@
           "name": "模块权限设置",
           "code": "0505",
           "url": "../Admin/SetAdmin"
+        },
+        {
+          "name": "流程设置",
+          "code": "0506",
+          "url": "../Admin/WorkFlowAdmin"
         }
       ]
     }

@@ -1,0 +1,11 @@
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\newsWindowsService.pdb
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\newsWindowsService.pdb
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\newsWindowsService.ProjectInstaller.resources
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\newsWindowsService.csproj.GenerateResource.Cache
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\newsWindowsService.exe.config
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\newsWindowsService.exe.manifest
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\newsWindowsService.application
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\bin\Debug\newsWindowsService.exe
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\newsWindowsService.exe.manifest
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\newsWindowsService.application
+D:\工作\消息提醒\newsWindowsService\newsWindowsService\obj\Debug\newsWindowsService.exe

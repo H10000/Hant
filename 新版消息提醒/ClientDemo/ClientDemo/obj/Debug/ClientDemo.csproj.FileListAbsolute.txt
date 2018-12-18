@@ -1,0 +1,9 @@
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\bin\Debug\ClientDemo.exe.config
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\bin\Debug\ClientDemo.exe
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\bin\Debug\ClientDemo.pdb
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\bin\Debug\Newtonsoft.Json.dll
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\bin\Debug\Newtonsoft.Json.xml
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\obj\Debug\ClientDemo.exe
+D:\工作\新版消息提醒\ClientDemo\ClientDemo\obj\Debug\ClientDemo.pdb

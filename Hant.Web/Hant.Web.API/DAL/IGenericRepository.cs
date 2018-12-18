@@ -23,5 +23,6 @@ namespace Hant.Web.API.DAL
         /// <param name="propertys"></param>
         void Update(T t, string[] propertys = null);
         void Delete(int id);
+        void DeleteByCondition(Expression<Func<T, bool>> fliter = null);
     }
 }

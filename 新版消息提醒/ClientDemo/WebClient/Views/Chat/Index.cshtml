@@ -1,0 +1,39 @@
+﻿
+<script src="~/Scripts/SignalrClient.js"></script>
+
+<div id="tpl_history" style="display:none;">
+    {{# layui.each(d.data, function(index, item){ }}
+    <div style="display:block;margin-left:8px;">
+        <div style="display:block">
+            {{# if(item.SendId==currentCID) { }}
+            <span style="display: inline-block; color: #5FB878;">{{ item.SendName }} </span>
+            <span style="display: inline-block; color: #5FB878;">{{ item.SendTime }}</span>
+            {{# }else{ }}
+            <span style="display: inline-block; color: #01AAED;">{{ item.SendName }}</span>
+            <span style="display: inline-block; color: #01AAED;">{{ item.SendTime }}</span>
+            {{# } }}
+        </div>
+        <div class="layui-card-body">
+            {{ item.MessageContent }}
+        </div>
+    </div>
+    {{# })}}
+</div>
+<div id="tpl_current" style="display:none;">
+    {{# layui.each(d.data, function(index, item){ }}
+    <div style="display:block;margin-left:8px;">
+        <div style="display:block">
+            {{# if(item.SendId==currentCID) { }}
+            <span style="display: inline-block; color: #5FB878;">{{ item.SendName }} </span>
+            <span style="display: inline-block; color: #5FB878;">{{ item.SendTime }}</span>
+            {{# }else{ }}
+            <span style="display: inline-block; color: #01AAED;">{{ item.SendName }}</span>
+            <span style="display: inline-block; color: #01AAED;">{{ item.SendTime }}</span>
+            {{# } }}
+        </div>
+        <div class="layui-card-body">
+            {{ item.MessageContent }}
+        </div>
+    </div>
+    {{# })}}
+</div>

@@ -1,0 +1,3 @@
+1¡¢enable-migrations
+2¡¢add-migration AddTestTable
+3¡¢update-database

@@ -1,0 +1,1 @@
+InstallUtil.exe -u "newsWindowsService.exe"

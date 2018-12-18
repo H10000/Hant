@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web sockets test</title>
+    <script type="text/javascript">
+        var ws;
+
+        function ToggleConnectionClicked() {
+            var UserID = document.getElementById("txtUserID").value;
+
+            try {
+                ws = new WebSocket("ws://127.0.0.1:1818/" + UserID + "");
+
+                ws.onopen = function (event) {
+                        alert("已经与服务器建立了连接\r\n当前连接状态：" + this.readyState);
+                    };
+                ws.onmessage = function (event) {
+                    document.getElementById("txtReceiveContent").value=event.data+"/n";
+                };
+                ws.onclose = function (event) {
+                    alert("已经与服务器断开连接\r\n当前连接状态：" + this.readyState);
+                };
+                ws.onerror = function (event) {
+                    alert("WebSocket异常！");
+                };
+            } catch (ex) {
+                alert(ex.message);
+            }
+        };
+
+        function SendData() {
+            try {
+                var ms = document.getElementById("txtMessage").value;
+                var SendID = document.getElementById("txtUserID").value;
+                var ReceiveID = document.getElementById("txtReceiveID").value;
+                var send = {
+                    SendID: SendID,
+                    ReceiveID: ReceiveID,
+                    Message: ms
+                };
+                ws.send(JSON.stringify(send));
+            } catch (ex) {
+                alert(ex.message);
+            }
+        };
+
+        function seestate() {
+            alert(ws.readyState);
+        }
+        function duankai(){
+            ws.close();
+        }
+    </script>
+</head>
+
+<body>
+    <button id='ToggleConnection' type="button" onclick='ToggleConnectionClicked();'>连接服务器</button><br /><br />
+    <div><input id="txtUserID" /><button id='ToggleConnection' type="button" onclick='ToggleConnectionClicked();'>登录</button></div><br /><br />
+    <div>接收方ID：<input id="txtReceiveID" /> </div><br /><br />
+    <div>消息：<input id="txtMessage" /> <button id='ToggleConnection' type="button" onclick='SendData();'>发送</button></div><br /><br />
+
+    <div>接受的消息：<textarea id="txtReceiveContent" style="width:300px;height:500px;"></textarea> </div><br /><br />
+    <button id='ToggleConnection' type="button" onclick='seestate();'>查看状态</button><br /><br />
+    <button id='ToggleConnection' type="button" onclick='duankai();'>断开连接</button><br /><br />
+</body>
+
+</html>

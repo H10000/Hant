@@ -14,6 +14,11 @@ namespace Hant.Web.API.DAL
         private IGenericRepository<sys_user_authorization> sys_user_authorizationRepository;
         private IGenericRepository<sys_code_number> sys_code_numberRepository;
         private IGenericRepository<sys_role> sys_roleRepository;
+        private IGenericRepository<sys_group> sys_groupRepository;
+
+        private IGenericRepository<sys_user_group_relation> sys_user_group_relationRepository;
+        private IGenericRepository<sys_user_role_relation> sys_user_role_relationRepository;
+
         public IGenericRepository<sys_user> Sys_userRepository
         {
             get
@@ -59,6 +64,42 @@ namespace Hant.Web.API.DAL
                     sys_roleRepository = new GenericRepository<sys_role>(context);
                 }
                 return sys_roleRepository;
+            }
+        }
+
+        public IGenericRepository<sys_group> Sys_groupRepository
+        {
+            get
+            {
+                if (sys_groupRepository == null)
+                {
+                    sys_groupRepository = new GenericRepository<sys_group>(context);
+                }
+                return sys_groupRepository;
+            }
+        }
+
+        public IGenericRepository<sys_user_group_relation> Sys_user_group_relationRepository
+        {
+            get
+            {
+                if (sys_user_group_relationRepository == null)
+                {
+                    sys_user_group_relationRepository = new GenericRepository<sys_user_group_relation>(context);
+                }
+                return sys_user_group_relationRepository;
+            }
+        }
+
+        public IGenericRepository<sys_user_role_relation> Sys_user_role_relationRepository
+        {
+            get
+            {
+                if (sys_user_role_relationRepository == null)
+                {
+                    sys_user_role_relationRepository = new GenericRepository<sys_user_role_relation>(context);
+                }
+                return sys_user_role_relationRepository;
             }
         }
         public void Save()

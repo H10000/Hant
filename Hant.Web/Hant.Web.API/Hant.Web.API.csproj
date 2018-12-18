@@ -131,6 +131,9 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="DAL\AccountContext.cs" />
     <Compile Include="DAL\Entity\sys_code_number.cs" />
+    <Compile Include="DAL\Entity\sys_user_group_relation.cs" />
+    <Compile Include="DAL\Entity\sys_user_role_relation.cs" />
+    <Compile Include="DAL\Entity\sys_group.cs" />
     <Compile Include="DAL\Entity\sys_role.cs" />
     <Compile Include="DAL\Entity\sys_user.cs" />
     <Compile Include="DAL\Entity\sys_user_authorization.cs" />
@@ -142,6 +145,7 @@
     </Compile>
     <Compile Include="Helper\EnumClass.cs" />
     <Compile Include="Helper\ImgeHelper.cs" />
+    <Compile Include="Helper\RecursionData.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\JsonpResultAPI.cs" />
     <Compile Include="Models\JsonpResultAPI_JSONP.cs" />

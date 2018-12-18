@@ -1,0 +1,54 @@
+.top {
+  height: 14px;
+  line-height: 14px;
+  color: #01aaed;
+  font-size: 14px;
+}
+
+.todayMoney {
+  margin-top: 40rpx;
+  text-align: center;
+  font-size: 25px;
+  color: #ff5722;
+}
+
+.todayMoneyTip {
+  margin-top: 5rpx;
+  text-align: center;
+  font-size: 12px;
+  color: #01aaed;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.allMoneyView {
+  margin-top: 10rpx;
+  font-size: 14px;
+  height: 24px;
+  border-bottom: 1px dashed #c2c2c2;
+}
+
+.allMoneyTip {
+}
+
+.allMoney {
+  margin-left: 20rpx;
+  color: #01aaed;
+}
+
+.allMoneyCountTip {
+  margin-left: 30%;
+}
+
+.allMoneyCount {
+  margin-left: 20rpx;
+  color: #01aaed;
+}
+.item {
+  font-size: 14px;
+  margin-top: 10rpx;
+  border-bottom: 1px dashed #c2c2c2;
+}
+.itemTip{
+  display: inline-block;
+  width:32%;
+}

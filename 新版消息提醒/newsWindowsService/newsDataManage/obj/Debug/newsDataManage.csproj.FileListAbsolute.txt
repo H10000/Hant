@@ -1,0 +1,5 @@
+D:\工作\消息提醒\newsWindowsService\newsDataManage\bin\Debug\newsDataManage.dll
+D:\工作\消息提醒\newsWindowsService\newsDataManage\bin\Debug\newsDataManage.pdb
+D:\工作\消息提醒\newsWindowsService\newsDataManage\obj\Debug\newsDataManage.dll
+D:\工作\消息提醒\newsWindowsService\newsDataManage\obj\Debug\newsDataManage.pdb
+D:\工作\消息提醒\newsWindowsService\newsDataManage\obj\Debug\newsDataManage.csprojResolveAssemblyReference.cache

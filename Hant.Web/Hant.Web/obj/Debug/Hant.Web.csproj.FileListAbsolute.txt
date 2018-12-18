@@ -247,3 +247,4 @@ D:\个人\Hant\Hant\Hant.Web\Hant.Web\bin\zh-Hans\Microsoft.Owin.Security.Micros
 D:\个人\Hant\Hant\Hant.Web\Hant.Web\obj\Debug\Hant.Web.dll
 D:\个人\Hant\Hant\Hant.Web\Hant.Web\obj\Debug\Hant.Web.pdb
 D:\个人\Hant\Hant\Hant.Web\Hant.Web\obj\Debug\Hant.Web.csprojResolveAssemblyReference.cache
+D:\Hant\Hant\Hant.Web\Hant.Web\obj\Debug\Hant.Web.csprojResolveAssemblyReference.cache

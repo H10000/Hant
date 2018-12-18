@@ -89,6 +89,7 @@ namespace Hant.Web.API.Controllers
 
         #region 用户登录-用户名密码登录
         [HttpGet]
+        [Route("ValidateDengLuByLoginName")]
         public HttpResponseMessage ValidateDengLuByLoginName(string LoginName, string Pwd, string callback)
         {
             var res = new { Result = "OK" };
@@ -96,6 +97,10 @@ namespace Hant.Web.API.Controllers
             if (LoginInfo.Count() == 0)
             {
                 res = new { Result = "1" };//不存在用户
+            }
+            else if (LoginInfo.FirstOrDefault().Status != 1)
+            {
+                res = new { Result = "1" };//用户状态未禁用
             }
             else
             {

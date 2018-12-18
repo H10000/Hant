@@ -1,0 +1,22 @@
+<view class='container1'>
+<view class='top'>
+<text>{{userInfo.nickName}}</text>
+</view>
+<view class='todayMoney'>
+<text>{{todayMoney}}</text>
+</view>
+<view class='todayMoneyTip'>
+<text>{{todayMoneyTip}}</text>
+</view>
+<view class='allMoneyView'>
+<text class='allMoneyTip'>{{allMoneyTip}}</text>
+<text class='allMoney'>{{allMoney}}</text>
+<text class='allMoneyCountTip'>{{allMoneyCountTip}}</text>
+<text class='allMoneyCount'>{{allMoneyCount}}</text>
+</view>
+<view class='item'>
+<text class='itemTip'>{{itemDateTip}}</text>
+<text class='itemTip'>{{itemMoneyTip}}</text>
+<text class='itemTip'>{{itemCountTip}}</text>
+</view>
+</view>
